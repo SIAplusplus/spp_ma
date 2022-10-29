@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import {Button,StyleSheet, Text, View, TextInput } from 'react-native';
+import {ImageBackground, Image,Button,StyleSheet, Text, View, TextInput } from 'react-native';
 
-import {ApolloProvider,useQuery, ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client'
+import { ApolloProvider,useQuery, ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client'
 import List from '../graphql/queries';
 
 
@@ -12,12 +12,22 @@ const client = new ApolloClient({
 
 
 export default function Busqueda () {
+
     return(
+      
       <ApolloProvider client={client}>
-        <View>
-          <Text>Busqueda Asignaturas</Text>
-          <List></List>
-        </View>
+        <ImageBackground
+            style={styles.containerImg}
+            source={require('./assets/cytimg.jpg')}           
+      >
+          <View>
+            <Text style={styles.title}>
+              Busqueda Asignaturas
+            </Text>
+            <List></List>
+             
+          </View>
+        </ImageBackground>
       </ApolloProvider>
     )
   }
@@ -57,12 +67,12 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 60,
-        color: '#000',
+        color: '#fff',
         fontWeight: 'bold',
     },
     subTitle:{
         fontSize: 20,
-        color: '#000',
+        color: '#fff',
     },
     textInput: {
         borderWidth: 1,
