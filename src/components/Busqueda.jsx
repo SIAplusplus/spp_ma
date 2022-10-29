@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {ImageBackground, Image,Button,StyleSheet, Text, View, TextInput } from 'react-native';
+import {ScrollView, ImageBackground, Image,Button,StyleSheet, Text, View, TextInput } from 'react-native';
 
 import { ApolloProvider,useQuery, ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client'
 import List from '../graphql/queries';
@@ -20,13 +20,13 @@ export default function Busqueda () {
             style={styles.containerImg}
             source={require('./assets/cytimg.jpg')}           
       >
-          <View>
+          <ScrollView>
             <Text style={styles.title}>
               Busqueda Asignaturas
             </Text>
             <List></List>
              
-          </View>
+          </ScrollView>
         </ImageBackground>
       </ApolloProvider>
     )
